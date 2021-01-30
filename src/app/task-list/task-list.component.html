@@ -1,0 +1,23 @@
+<div>
+  <!--Toolbar-->
+  <mat-toolbar color="primary">
+    <span>List of tasks</span>
+    <button mat-fab color="white" class="add-button">
+      <mat-icon class="add-icon">add</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="list-container">
+    <div class="list-item" *ngFor="let task of taskList; let i = index">
+      <div class="task task-details">
+        <p class="task-details_header">{{task.name}}</p>
+        <p class="task-details_desc">{{task.description}}</p>
+        <p class="task-details_status">{{task.status}}</p>
+      </div>
+      <div class="task task-status">
+        <button mat-stroked-button color="accent">{{task.running}}</button>
+      </div>
+    </div>
+  </div>
+
+</div>
