@@ -6,13 +6,10 @@ import { Component, OnInit, NgModule } from '@angular/core';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-
-  public rooms: any[];
   public taskList: any[];
   constructor() {  }
 
   ngOnInit() {
-    this.rooms = ['Room1', 'Room2', 'Terrace'];
     this.taskList = [
       {
         name: 'Generate sample project task',

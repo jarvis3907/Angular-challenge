@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { AddTasksMainComponent } from './add-tasks-main/add-tasks-main.component';
+import { AddTasksSummaryComponent } from './add-tasks-summary/add-tasks-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskListComponent
+    TaskListComponent,
+    AddTasksMainComponent,
+    AddTasksSummaryComponent
   ],
   imports: [
     BrowserModule,
