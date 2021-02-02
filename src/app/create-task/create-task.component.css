@@ -1,0 +1,11 @@
+.container {
+    padding: 10% 20%;
+}
+
+mat-form-field {
+    display: block;
+}
+
+button {
+    float: right;
+}

@@ -1,0 +1,37 @@
+<div class="create-form">
+    <!--Toolbar-->
+    <mat-toolbar color="primary">
+        <mat-icon
+            routerLink="/" routerLinkActive="active"
+            style="margin-right:8px;cursor:pointer"
+            >arrow_back
+        </mat-icon>
+        <span>Task Wizard - Configure task (2/4)</span>
+    </mat-toolbar>
+
+    <div class="container">
+        <h4>Please input the configuration for `Count from X to Y` task.</h4>
+        <form>
+            <mat-form-field>
+                <input
+                    matInput
+                    type="number"
+                    placeholder="Counting from number:"
+                    [(ngModel)]="fromNumber"
+                    name="initialCount"
+                >
+            </mat-form-field>
+            <!-- <mat-error *ngIf="(taskFormControl.hasError('min')|| taskFormControl.hasError('max')) && !taskFormControl.hasError('required')">
+                Please enter a valid number between 1 and 1000
+            </mat-error>
+            <mat-error *ngIf="taskFormControl.hasError('required')">
+                Number is <strong>required</strong>
+            </mat-error> -->
+
+            <mat-form-field>
+                <input matInput type="number" placeholder="Counting to number:" [(ngModel)]="toNumber" name="finalCount">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="createTask()">Next</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<!--Toolbar-->
+<mat-toolbar color="primary">
+    <mat-icon
+        (click)="goBack()"
+        style="margin-right:8px;cursor:pointer"
+        >arrow_back
+    </mat-icon>
+    <span>Task Wizard - Execute task (3/4)</span>
+</mat-toolbar>
+
+<div class="container" *ngIf="taskData['status'] === 'NOT CONFIGURED'">
+    <h4>Do you want to execute the task now?</h4>
+    <button mat-raised-button color="primary" (click)="executeTask()">Yes</button>
+</div>
+
+<div class="container" *ngIf="taskData['status'] === 'EXECUTING'">
+    <h4>Executing now..</h4>
+    <p>We are currently at number {{taskData['currentCount']}}/{{taskData['finalCount']}}</p>
+    <div class="loader"></div>
+    <button mat-raised-button color="primary" (click)="cancelTask()">Cancel Execution</button>
+</div>

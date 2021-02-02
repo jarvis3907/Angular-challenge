@@ -49,6 +49,7 @@ mat-toolbar {
 
 .task-details {
   width: 90%;
+  cursor: pointer;
 }
 
 .task-details p {

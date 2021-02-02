@@ -1,0 +1,20 @@
+<!--Toolbar-->
+<mat-toolbar color="primary">
+    <mat-icon
+        routerLink="/" routerLinkActive="active"
+        style="margin-right:8px;cursor:pointer"
+        >arrow_back
+    </mat-icon>
+    <span>Task Wizard - Summary (4/4)</span>
+</mat-toolbar>
+<div class="container">
+    <div *ngIf="taskData['status']==='COMPLETED'">
+        <p>Task finished execution successfully.</p>
+        <p>Counted from {{taskData['initialCount']}} to {{taskData['finalCount']}}</p>
+    </div>
+    <div *ngIf="taskData['status']==='CANCELLED'">
+        <p>Task execution <b>cancelled</b> successfully.</p>
+        <p>Counted from {{taskData['initialCount']}} till {{taskData['currentCount']}}</p>
+        <p>Actual final count given is {{taskData['finalCount']}}</p>
+    </div>
+</div>

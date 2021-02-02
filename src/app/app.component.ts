@@ -5,6 +5,10 @@ import { TaskListComponent } from './task-list/task-list.component';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
 })
-export class AppComponent extends TaskListComponent{
+export class AppComponent {
   title = 'angular-challenge';
+
+  onTaskDetails(data) {
+    console.log('received taskdetails', data);
+  }
 }
