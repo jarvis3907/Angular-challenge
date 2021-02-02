@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskShareService } from '../task.share.service';
+import {HttpService} from '../http.service'
 
 @Component({
   selector: 'app-add-tasks-main',
@@ -10,22 +11,35 @@ export class AddTasksMainComponent implements OnInit {
 
   taskStep : String = 'addList';
   taskDetails: Object;
-
-  constructor(public taskData: TaskShareService) { }
+  taskType: any[];
+  constructor(public taskData: TaskShareService, private httpService: HttpService) { }
 
   ngOnInit(): void {
     console.log('taskshare details', this.taskData.getTaskData());
     // TODO: Make taskByID call
     this.taskDetails = this.taskData.getTaskData();
     this.mapTaskStep(this.taskDetails['status']);
+    if(this.taskStep === 'addList'){
+      this.httpService.getTaskType().subscribe(
+        data => {
+          this.taskType = data['taskType'];
+          console.log(data);
+        }
+      )
+    }
   }
 
   addTask() {
     alert('creating a task');
   }
 
-  showView(taskView: String) {
+  showView(taskView: String , taskId: Number) {
+    if(taskId === 2){
     this.taskStep = taskView;
+    this.taskDetails['taskType'] = taskId;
+    }else{
+      alert('Not configured');
+    }
   }
 
   onExecuteTask(data: Object) {

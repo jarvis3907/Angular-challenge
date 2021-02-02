@@ -32,4 +32,8 @@ export class HttpService {
   deleteTask(id): Observable<Object> {
     return this.http.delete(`/api/tasks/${id}`);
   }
+
+  getTaskType(): Observable<Object> {
+    return this.http.get(`/api/tasklist/`);
+  }
 }

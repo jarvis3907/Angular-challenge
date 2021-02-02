@@ -44,6 +44,7 @@ export class CreateTaskComponent implements OnInit {
       this.http.createTaskRequest({
         initialCount: this.fromNumber,
         finalCount: this.toNumber,
+        taskId: this.taskDetails['taskType']
       }).subscribe(
         data => {
           console.log('successful', data);

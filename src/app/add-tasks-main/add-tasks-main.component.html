@@ -11,19 +11,16 @@
           <span>Task Wizard - Choose task type (1/4)</span>
         </mat-toolbar>
       
+
         <div class="list-container">
-          <div class="list-item">
-            <div class="task task-details">
-              <p class="task-details_header">Generate a task</p>
+          <div class="list-item" *ngFor="let task of taskType; let i = index">
+            <div class="task task-details" (click)="showView('addTask',task.taskId)">
+              <p class="task-details_header">{{task.taskName}}</p>
+              <p class="task-details_header">{{task.taskDescription}}</p>
             </div>
           </div>
-          <div class="list-item">
-            <div class="task task-details" (click)="showView('addTask')">
-            <!-- routerLink="/task/create" routerLinkActive="active"> -->
-                <p class="task-details_header">Count from X to Y</p>
-              </div>
-          </div>
         </div>
+
       </div>
       <!-- END OF MAIN -->
     </div>
