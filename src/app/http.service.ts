@@ -10,7 +10,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   createTaskRequest(data: Object): Observable<Object> {
-    return this.http.post('/api/tasks', data);
+    return this.http.post('/api/tasks/', data);
   }
 
   executeTaskRequest(data: Object): Observable<Object> {
@@ -18,7 +18,7 @@ export class HttpService {
   }
 
   getTaskList(): Observable<Object> {
-    return this.http.get('/api/tasks');
+    return this.http.get('/api/tasks/');
   }
 
   getTaskById(id): Observable<Object> {
