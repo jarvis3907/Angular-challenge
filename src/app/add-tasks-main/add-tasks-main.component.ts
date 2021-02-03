@@ -15,7 +15,7 @@ export class AddTasksMainComponent implements OnInit {
   constructor(public taskData: TaskShareService, private httpService: HttpService) { }
 
   ngOnInit(): void {
-    console.log('taskshare details', this.taskData.getTaskData());
+    // console.log('taskshare details', this.taskData.getTaskData());
     // TODO: Make taskByID call
     this.taskDetails = this.taskData.getTaskData();
     this.mapTaskStep(this.taskDetails['status']);
@@ -23,7 +23,7 @@ export class AddTasksMainComponent implements OnInit {
       this.httpService.getTaskType().subscribe(
         data => {
           this.taskType = data['taskType'];
-          console.log(data);
+          // console.log(data);
         }
       )
     }
@@ -43,13 +43,13 @@ export class AddTasksMainComponent implements OnInit {
   }
 
   onExecuteTask(data: Object) {
-    console.log('executed task->',data);
+    // console.log('executed task->',data);
     this.taskDetails = data;
     this.taskStep = 'executeTask';
   }
 
   onTaskSummary(data) {
-    console.log('received task summary event on MAIN---------------')
+    // console.log('received task summary event on MAIN---------------')
     this.taskDetails = data;
     this.mapTaskStep(data['status']);
   }

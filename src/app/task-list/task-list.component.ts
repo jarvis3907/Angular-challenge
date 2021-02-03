@@ -21,11 +21,11 @@ export class TaskListComponent implements OnInit {
   getTaskList() {
     this.httpService.getTaskList().subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this.taskList = data['tasks'];
       },
       error => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -41,7 +41,7 @@ export class TaskListComponent implements OnInit {
   }
 
   cancelTask(id) {
-    console.log('cancelling->', id);
+    // console.log('cancelling->', id);
     this.httpService.cancelTask(id).subscribe(
       () => {
         this.getTaskList();
@@ -50,7 +50,7 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(id) {
-    console.log('deleting->', id);
+    // console.log('deleting->', id);
     this.httpService.deleteTask(id).subscribe(
       () => this.getTaskList()
     )

@@ -20,7 +20,7 @@ export class CreateTaskComponent implements OnInit {
   @Output() executeTask = new EventEmitter<Object>();
 
   ngOnInit(): void {
-    console.log('create task d', this.taskDetails);
+    // console.log('create task d', this.taskDetails);
     if (this.taskDetails && this.taskDetails['initialCount']) {
       this.fromNumber = this.taskDetails['initialCount'] || 0;
       this.toNumber = this.taskDetails['finalCount'] || 0;
@@ -47,13 +47,13 @@ export class CreateTaskComponent implements OnInit {
         taskId: this.taskDetails['taskType']
       }).subscribe(
         data => {
-          console.log('successful', data);
+          // console.log('successful', data);
           this.taskDetails = data;
           // this.router.navigateByUrl('/task/execute');
           this.executeTask.emit(data);
         },
         error => {
-          console.log('error', error);
+          // console.log('error', error);
         }
       );
     }

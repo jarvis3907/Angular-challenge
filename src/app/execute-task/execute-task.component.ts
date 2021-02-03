@@ -29,20 +29,20 @@ export class ExecuteTaskComponent implements OnInit {
       finalCount: this.taskData['finalCount'],
     }).subscribe(() => {
       this.taskData['status'] = 'EXECUTING';
-      // console.log('td', this.taskData);
+      // // console.log('td', this.taskData);
       this.loopTaskById();
     },
     err => {
-      console.log(err)
+      // console.log(err)
     })
   }
 
   loopTaskById() {
-    console.log('starting here');
+    // console.log('starting here');
     this.looper = setInterval(() => {
       this.httpService.getTaskById(this.taskData['id']).subscribe(
         (data) => {
-          // console.log(data);
+          // // console.log(data);
           this.taskData = data;
           if (data && data['status'] === 'COMPLETED') {
             clearInterval(this.looper);
@@ -50,7 +50,7 @@ export class ExecuteTaskComponent implements OnInit {
           }
         },
         error => {
-          console.log(error);
+          // console.log(error);
         }
       );
     }, 1000);
@@ -58,7 +58,7 @@ export class ExecuteTaskComponent implements OnInit {
 
   goBack() {
     if (this.looper) {
-      console.log('stopping the interval');
+      // console.log('stopping the interval');
       clearInterval(this.looper);
     }
 
@@ -68,12 +68,12 @@ export class ExecuteTaskComponent implements OnInit {
   cancelTask() {
     this.httpService.cancelTask(this.taskData['id']).subscribe(
       data => {
-        console.log('cancelled');
+        // console.log('cancelled');
         clearInterval(this.looper);
         this.taskSummary.emit(data);
       },
       err => {
-        console.log('cancellation failed');
+        // console.log('cancellation failed');
       }
     )
   }

@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'angular-challenge';
 
   onTaskDetails(data) {
-    console.log('received taskdetails', data);
+    // console.log('received taskdetails', data);
   }
 }
